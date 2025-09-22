@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    if (TempData["Msg"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show mb-3" role="alert">
+            <strong>message</strong> @TempData["Msg"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-lg-6">
+            <form name="fr" action="/Home/SendMail">
+                <div class="p-2">
+                    <label for="to">Mail to</label>
+                </div>
+                <div class="p-2">
+                    <input type="email" name="to" class="form-control" required />
+
+                </div>
+                <div class="p-2">
+                    <label for="subject">subject</label>
+                </div>
+                <div class="p-2">
+                    <input type="text" name="subject" class="form-control" required />
+                </div>
+
+                <div class="p-2">
+                    <label for="message">message</label>
+                </div>
+                <div class="p-2">
+                    <textarea name="message" cols="6" rows="6" class="form-control"></textarea>
+                </div>
+
+                <div class="p-2">
+                    <input type="submit" value="send" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
